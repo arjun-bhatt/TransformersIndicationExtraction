@@ -23,12 +23,13 @@ NLTK for development of custom tokenizer
 - preprocessing_labeling_xml: a notebook that uses the human Rx drug labeling information from the FDA as a corpus, tokenizes sentences from those labels using a custom tokenizer 
 - LSTM_Model: a notebook that trains & evaluates a bi-directional LSTM model on top of that dataset
 - Transformers_Indication_Extraction: a notebook that trains and evalutes two transformers models individually on that dataset, then stacks the hidden state representations of each sentence from each model, and trains and evaluates a new model based off those concatenated representations. Also validates dataset using sentences extracted from Drugbank.
-- **AnnotatedDataset** : Composed of labeled sentences extracted from the Indications & Usage section of FDA Rx Labeling Documents. Sentences are labeled numerically 1-5, where:
+- **AnnotatedDataset** : Composed of 7231 labeled sentences extracted from the Indications & Usage section of FDA Rx Labeling Documents. During the extraction process, sentences were lemmatized, stop words removed, and punctuation/digit/two character words removed as well. Sentences are labeled numerically 1-5, where:
 - - 0: clinical observation (1673)
 - - 1: indication (4297)
 - - 2: contraindication (492)
 - - 3: side effect (68)
 - - 4: usage instruction (701)
+- - These assignments were verified by 3 pharmacologists. Sentences were collapsed into indication (1) or non-indication (0, 2-4) for the purposes of classification. An 80/20 train/test split was used.
 - drugbank-indication: Used to validate models trained on AnnotatedDataset; this is composed of solely indications extracted from Drugbank. Useful for ensuring models are picking up on patterns present in sentences that represent indications in the general case rather than sentences that represent indications in FDA documents. 
 
 
