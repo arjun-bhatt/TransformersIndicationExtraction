@@ -32,7 +32,12 @@ NLTK for development of custom tokenizer
 - - These assignments were verified by 3 pharmacologists. Sentences were collapsed into indication (1) or non-indication (0, 2-4) for the purposes of classification. An 80/20 train/test split was used.
 - drugbank-indication: Used to validate models trained on AnnotatedDataset; this is composed of solely indications extracted from Drugbank. Useful for ensuring models are picking up on patterns present in sentences that represent indications in the general case rather than sentences that represent indications in FDA documents. 
 
+. 
+## Data Sources
 
+- To further validate our dataset, we used word2vec sourced from various locations. The in-house Word2Vec model developed from Rx drug labeling documents can be found here: https://drive.google.com/file/d/1-v8bBRZETY1zKvVABTtbzwzEKbdZPjhr/view?usp=sharing_eil&ts=601da044. 
+- Word2Vec models from pubmed, PMC, and wikipedia were accessed (& can continue to be accessed) from: http://evexdb.org/pmresources/vec-space-models/
+- Word2Vec models from GloVe (Twitter data) can similarly be accessed here: https://nlp.stanford.edu/projects/glove/
 
 ## Code Example
 
